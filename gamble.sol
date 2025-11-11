@@ -15,7 +15,7 @@ contract Rullet {
 
     // action //
     // fullet : 입금하면 입금한 금액만큼 0.1ETH당 무작위로 증가
-        // (50%: 0~0.05, 30% 0.05~0.1, 19% 0.1~0.2, 1% 0.2~1)
+        // (50%: 0~0.05, 30% 0.05~0.1, 15% 0.1~0.2, 5% 0.2~1)
     // withdraw_개별계좌
     // withdraw_관리자 : 관리자 전체 출금
     // renew : 관리자 전체 리셋
@@ -59,10 +59,10 @@ contract Rullet {
                 earn = ((randomNumber - 49) * 0.05 ether / 30 + 0.05 ether);
                 balances[msg.sender] += earn;
             } else if(randomNumber < 95) {
-                earn = ((randomNumber - 79) * 0.01 ether / 15 + 0.1 ether);
+                earn = ((randomNumber - 79) * 0.1 ether / 15 + 0.1 ether);
                 balances[msg.sender] += earn;
             } else {
-                earn = ((randomNumber - 94) * 0.08 ether / 5 + 0.2 ether);
+                earn = ((randomNumber - 94) * 0.8 ether / 5 + 0.2 ether);
                 balances[msg.sender] += earn;
             }
 
