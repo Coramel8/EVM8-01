@@ -57,15 +57,15 @@ contract WordsonChainERC20 {
         uint _amount
     ) public returns (bool success) {
         
-        address owwner = msg.sender;
+        address owner = msg.sender;
 
-        require(balances[owwner] >= _amount, "Not enough balance in account"); //체크
+        require(balances[owner] >= _amount, "Not enough balance in account"); //체크
         
-        balances[owwner] -= _amount; //차감
+        balances[owner] -= _amount; //차감
 
         balances[_to] += _amount; //전송
         
-        emit Transfer(owwner, _to, _amount); //이벤트
+        emit Transfer(owner, _to, _amount); //이벤트
         
         return true; //함수가 끝까지 실행됐다 = 전송이 잘 됐다 = 성공 반환
     }
